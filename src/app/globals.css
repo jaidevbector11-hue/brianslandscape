@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* System font stacks — zero network cost, fast first paint (Core Web Vitals). */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    Cambria, "Times New Roman", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-sand-50 text-earth-950 antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-forest-900;
+    text-wrap: balance;
+  }
+
+  /* Visible focus ring for keyboard users (accessibility). */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline-none ring-2 ring-forest-500 ring-offset-2 ring-offset-white;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn bg-forest-600 text-white hover:bg-forest-700 focus-visible:ring-forest-500;
+  }
+  .btn-accent {
+    @apply btn bg-earth-500 text-white hover:bg-earth-600 focus-visible:ring-earth-400;
+  }
+  .btn-outline {
+    @apply btn border-2 border-forest-600 bg-white/70 text-forest-700 hover:bg-forest-50 focus-visible:ring-forest-500;
+  }
+  .btn-ghost {
+    @apply btn text-forest-700 hover:bg-forest-50;
+  }
+
+  .section {
+    @apply py-14 sm:py-20;
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-widest text-forest-600;
+  }
+
+  .prose-body {
+    @apply space-y-4 text-base leading-relaxed text-earth-900/90;
+  }
+  .prose-body p {
+    @apply text-earth-900/90;
+  }
+
+  .card {
+    @apply rounded-2xl border border-earth-200/70 bg-white shadow-sm;
+  }
+
+  .link-underline {
+    @apply font-semibold text-forest-700 underline decoration-forest-300 underline-offset-4 hover:decoration-forest-600;
+  }
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

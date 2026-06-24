@@ -1,0 +1,71 @@
+# Builds the site as a static export and publishes it to GitHub Pages.
+#
+# One-time setup: in the repo, go to Settings → Pages → "Build and deployment"
+# and set Source = "GitHub Actions". Then this runs automatically on every push
+# to `main` (or manually via the Actions tab → "Run workflow").
+#
+# Note: this is a static PREVIEW. The contact/quote/booking forms are display-only
+# here (they point people to the phone number). For a fully working site with live
+# forms, deploy to a Node host such as Vercel.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; don't cancel an in-progress production deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Remove server API routes (not supported by static export)
+        run: rm -rf src/app/api
+
+      - name: Build static site
+        env:
+          STATIC_EXPORT: "1"
+          NEXT_PUBLIC_STATIC_EXPORT: "1"
+          NEXT_PUBLIC_BASE_PATH: /brianslandscape
+          NEXT_PUBLIC_SITE_URL: https://jaidevbector11-hue.github.io/brianslandscape
+        run: npm run build
+
+      - name: Disable Jekyll (so _next assets are served)
+        run: touch out/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
