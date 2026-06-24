@@ -1,8 +1,8 @@
 # Builds the site as a static export and publishes it to GitHub Pages.
 #
-# One-time setup: in the repo, go to Settings → Pages → "Build and deployment"
-# and set Source = "GitHub Actions". Then this runs automatically on every push
-# to `main` (or manually via the Actions tab → "Run workflow").
+# Setup is automatic: the "Configure GitHub Pages" step below enables Pages and
+# sets it to build from GitHub Actions. Runs on every push to `main` (or manually
+# via the Actions tab -> "Run workflow").
 #
 # Note: this is a static PREVIEW. The contact/quote/booking forms are display-only
 # here (they point people to the phone number). For a fully working site with live
@@ -30,6 +30,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Set up Node
         uses: actions/setup-node@v4
