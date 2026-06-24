@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import type { GalleryImage } from "@/lib/gallery";
+import { asset } from "@/lib/asset";
 
 /**
  * Draggable before/after comparison slider. Accessible via keyboard
@@ -46,7 +47,7 @@ export default function BeforeAfterSlider({
       {/* After image (base layer) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={after.src}
+        src={asset(after.src)}
         alt={after.alt}
         width={after.width}
         height={after.height}
@@ -58,7 +59,7 @@ export default function BeforeAfterSlider({
       {/* Before image, clipped to the left of the divider */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={before.src}
+        src={asset(before.src)}
         alt={before.alt}
         width={before.width}
         height={before.height}

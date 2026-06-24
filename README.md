@@ -111,5 +111,22 @@ scripts/               # placeholder image generator
 
 ## Deployment
 
+### Full site (recommended) — Vercel / any Node host
+
 Deploys cleanly to any Node host that supports Next.js (Vercel recommended —
-zero-config). Set the environment variables above in the host's dashboard.
+zero-config). Forms, API routes, and image optimization all work. Set the
+environment variables above in the host's dashboard.
+
+### Free static preview — GitHub Pages
+
+A workflow at `.github/workflows/deploy-pages.yml` publishes a static preview to
+GitHub Pages with **no external account**:
+
+1. In the repo: **Settings → Pages → Build and deployment → Source = "GitHub Actions"**.
+2. Push to / merge into `main` (or run the workflow manually from the **Actions** tab).
+3. The site goes live at `https://<owner>.github.io/brianslandscape/` in a couple minutes.
+
+The static build is served from the `/brianslandscape` base path and sets
+`STATIC_EXPORT=1`, so it excludes the server API routes. On this preview the
+contact/quote/booking **forms are display-only** — they direct visitors to call
+(610) 867-7414. Use a Node host (above) for live form submissions.

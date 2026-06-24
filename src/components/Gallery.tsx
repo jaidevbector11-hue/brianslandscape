@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { galleryCategories, type GalleryItem } from "@/lib/gallery";
+import { asset } from "@/lib/asset";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 
 function ExpandIcon() {
@@ -33,7 +34,7 @@ function Tile({ item, onOpen }: { item: GalleryItem; onOpen: () => void }) {
           <button type="button" onClick={onOpen} className="block w-full" aria-label={`Enlarge ${item.title}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={item.after.src}
+              src={asset(item.after.src)}
               alt={item.after.alt}
               width={item.after.width}
               height={item.after.height}
@@ -98,7 +99,7 @@ function Lightbox({
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={item.after.src}
+              src={asset(item.after.src)}
               alt={item.after.alt}
               width={item.after.width}
               height={item.after.height}
