@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Front Yard Landscape Design — AFTER">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bfe3f2"/>
+      <stop offset="1" stop-color="#eef6f8"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#69b35c"/>
+      <stop offset="1" stop-color="#4f9a43"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <circle cx="1020" cy="170" r="64" fill="#fff3c4" opacity="0.9"/>
+  <path d="M0 500 Q300 440 600 500 T1200 500 L1200 800 L0 800 Z" fill="url(#ground)"/>
+  <g transform="translate(280 700) scale(0.8)">
+    <ellipse cx="0" cy="0" rx="70" ry="46" fill="#3f8a39"/>
+    <ellipse cx="-38" cy="6" rx="42" ry="34" fill="#3f8a39"/>
+    <ellipse cx="40" cy="6" rx="44" ry="34" fill="#3f8a39"/>
+  </g><g transform="translate(470 712) scale(0.7)">
+    <ellipse cx="0" cy="0" rx="70" ry="46" fill="#5aa84f"/>
+    <ellipse cx="-38" cy="6" rx="42" ry="34" fill="#5aa84f"/>
+    <ellipse cx="40" cy="6" rx="44" ry="34" fill="#5aa84f"/>
+  </g><g transform="translate(900 700) scale(0.9)">
+    <rect x="-13" y="-120" width="26" height="130" rx="7" fill="#6b4a2f"/>
+    <circle cx="0" cy="-150" r="78" fill="#2f6b2c"/>
+    <circle cx="-55" cy="-120" r="60" fill="#3f8a39"/>
+    <circle cx="58" cy="-122" r="62" fill="#3f8a39"/>
+    <circle cx="0" cy="-185" r="58" fill="#3f8a39"/>
+  </g><path d="M520 800 L640 560 L720 560 L640 800 Z" fill="#d9cdab"/>
+  <g>
+    <rect x="40" y="40" width="1120" height="86" rx="16" fill="#234221" opacity="0.92"/>
+    <text x="64" y="84" font-family="Georgia, serif" font-size="34" fill="#ffffff" font-weight="700">Front Yard Landscape Design</text>
+    <text x="64" y="112" font-family="Arial, sans-serif" font-size="18" fill="#cfe6c9" letter-spacing="2">BRIAN'S LANDSCAPING · BETHLEHEM, PA</text>
+    <rect x="1000" y="58" width="136" height="50" rx="25" fill="#ffffff"/>
+    <text x="1068" y="91" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#234221" font-weight="800" letter-spacing="2">AFTER</text>
+  </g>
+  <text x="1160" y="772" text-anchor="end" font-family="Arial, sans-serif" font-size="16" fill="#ffffff" opacity="0.7">Placeholder — replace with real project photo</text>
+</svg>
